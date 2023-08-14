@@ -66,6 +66,8 @@ MAIN_TEXT_NAME = "ÖBL Haupttext"
 
 LANGUAGE_CODE = "de"
 
+INSTALLED_APPS += ["apis_bibsonomy"]
+
 #STATICFILES_DIRS = [BASE_DIR + "/member_images"]
 
 # APIS_COMPONENTS = ['deep learning']
@@ -75,34 +77,31 @@ LANGUAGE_CODE = "de"
 
 APIS_RELATIONS_FILTER_EXCLUDE += ["annotation", "annotation_set_relation"]
 
+from apis_ontology.filters import name_alternative_name_filter
 #INSTALLED_APPS.append("apis_highlighter")
 APIS_ENTITIES = {
     "Salary": {
+        "relations_per_page": 100,
         "search": ["name"]
     },
     "Function": {
+        "relations_per_page": 100,
         "search": ["name", "alternative_label"]
     },
     "Court": {
+        "relations_per_page": 100,
         "search": ["name", "alternative_label"]
     },
     "Place": {
+        "relations_per_page": 100,
         "merge": True,
         "search": ["name", "alternative_label"],
         "form_order": ["name", "kind", "lat", "lng", "status", "collection"],
         "table_fields": ["name"],
         "additional_cols": ["id", "lat", "lng", "part_of"],
-        "list_filters": [
-            {"name": {"method": "name_label_filter"}},
-            {"collection": {"label": "Collection"}},
-            {"kind": {"label": "Kind of Place"}},
-            "related_entity_name",
-            "related_relationtype_name",
-            "lat",
-            "lng",
-        ],
     },
     "Person": {
+        "relations_per_page": 100,
         "merge": True,
         "search": ["name", "first_name", "alternative_label"],
         "form_order": [
@@ -110,7 +109,6 @@ APIS_ENTITIES = {
             "name",
             "start_date_written",
             "end_date_written",
-            "profession",
             "status",
             "collection",
         ],
@@ -122,20 +120,13 @@ APIS_ENTITIES = {
             "alternative_label",
             "status",
         ],
-        "additional_cols": ["id", "profession", "gender"],
-        "list_filters": [
-            "name",
-            {"gender": {"label": "Gender"}},
-            {"start_date": {"label": "Date of Birth"}},
-            {"end_date": {"label": "Date of Death"}},
-            {"profession": {"label": "Profession"}},
-            {"title": {"label": "Title"}},
-            {"collection": {"label": "Collection"}},
-            "related_entity_name",
-            "related_relationtype_name",
-        ],
+        "additional_cols": ["id", "gender"],
+        "list_filters": {
+            "name": {"method": name_alternative_name_filter, "label": "Name or first name or alternative name"},
+        },
     },
     "Institution": {
+        "relations_per_page": 100,
         "merge": True,
         "search": ["name", "alternative_label"],
         "form_order": [
@@ -150,46 +141,22 @@ APIS_ENTITIES = {
             "id",
             "kind",
         ],
-        "list_filters": [
-            {"name": {"label": "Name or label of institution"}},
-            {"kind": {"label": "Kind of Institution"}},
-            {"start_date": {"label": "Date of foundation"}},
-            {"end_date": {"label": "Date of termination"}},
-            {"collection": {"label": "Collection"}},
-            "related_entity_name",
-            "related_relationtype_name",
-        ],
     },
     "Work": {
+        "relations_per_page": 100,
         "merge": True,
         "search": ["name"],
         "additional_cols": [
             "id",
             "kind",
         ],
-        "list_filters": [
-            {"name": {"label": "Name of work"}},
-            {"kind": {"label": "Kind of Work"}},
-            {"start_date": {"label": "Date of creation"}},
-            {"collection": {"label": "Collection"}},
-            "related_entity_name",
-            "related_relationtype_name",
-        ],
     },
     "Event": {
+        "relations_per_page": 100,
         "merge": True,
         "search": ["name", "alternative_label"],
         "additional_cols": [
             "id",
-        ],
-        "list_filters": [
-            {"name": {"label": "Name of event"}},
-            {"kind": {"label": "Kind of Event"}},
-            {"start_date": {"label": "Date of beginning"}},
-            {"end_date": {"label": "Date of end"}},
-            {"collection": {"label": "Collection"}},
-            "related_entity_name",
-            "related_relationtype_name",
         ],
     },
 }
@@ -202,3 +169,6 @@ ONTOLOGY_DIR = os.path.dirname(os.path.dirname(__file__))
 print(ONTOLOGY_DIR)
 for template in TEMPLATES:
   template["DIRS"].append(os.path.join(ONTOLOGY_DIR, "templates"))
+
+BIBSONOMY_REFERENCE_SIMILARITY = ['bibs_url', 'pages_start', 'pages_end', 'folio']
+ROOT_URLCONF="apis_ontology.urls"
