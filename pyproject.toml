@@ -21,7 +21,7 @@ django-csp = "^3.7"
 pyzotero = "^1.5.5"
 apis-core = { git = "https://github.com/acdh-oeaw/apis-core-rdf.git", branch = "sicprod" }
 webpage = { git = "https://github.com/acdh-oeaw/apis-webpage.git", branch = "main" }
-apis-bibsonomy = { git = "https://github.com/acdh-oeaw/apis-bibsonomy.git", branch = "main" }
+apis-bibsonomy = { git = "https://github.com/acdh-oeaw/apis-bibsonomy.git", branch = "birger/fix-referenceonform-issues" }
 apis-highlighter = { git = "https://github.com/acdh-oeaw/apis_highlighter.git", branch = "main" }
 
 [build-system]
