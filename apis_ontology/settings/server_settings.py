@@ -1,4 +1,4 @@
-from apis.settings.base import *
+from apis_acdhch_default_settings.settings import *
 import re
 import dj_database_url
 import os
