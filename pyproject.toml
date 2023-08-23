@@ -13,7 +13,7 @@ django = ">=4.1,<4.2"
 mysqlclient = "^2.0.3"
 apis-core = { git = "https://github.com/acdh-oeaw/apis-core-rdf.git", branch = "sicprod-dev" }
 apis-bibsonomy = { git = "https://github.com/acdh-oeaw/apis-bibsonomy.git", branch = "birger/fix-referenceonform-issues" }
-apis-acdhch-default-settings = { git = "https://github.com/acdh-oeaw/apis-acdhch-default-settings.git", tag = "v0.1.4" }
+apis-acdhch-default-settings = { git = "https://github.com/acdh-oeaw/apis-acdhch-default-settings.git", tag = "v0.1.5" }
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
