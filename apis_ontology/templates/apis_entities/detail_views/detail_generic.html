@@ -1,5 +1,8 @@
 {% extends "apis_entities/detail_views/detail_generic.html" %}
 {% load bibsonomy_templatetags %}
+{% load django_tables2 %}
+{% load relations %}
+
 {% block info-table %}
 <table class="table table-bordered table-hover">
   <tr>
@@ -74,3 +77,22 @@
 
 </table>
 {% endblock info-table %}
+
+{% block relations %}
+{% instance_is_related_to instance=object as contenttypes %}
+{% for contenttype in contenttypes %}
+<div class="card card-default">
+  <div class="card-header" role="tab" id="heading{{ forloop.counter }}">
+    <h4 class="card-title">
+      <a role="button">{{ contenttype.name }}</a>
+    </h4>
+  </div>
+    <div role="tabcard">
+       <div class="card-body">
+        {% relations_table instance=object tocontenttype=contenttype as table %}
+	{% render_table table %}
+    </div>
+    </div>
+  </div>
+{% endfor %}
+{% endblock %}

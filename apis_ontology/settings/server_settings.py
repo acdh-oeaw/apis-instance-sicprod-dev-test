@@ -68,6 +68,7 @@ LANGUAGE_CODE = "de"
 
 INSTALLED_APPS += ["apis_bibsonomy"]
 INSTALLED_APPS += ["webpage"]
+INSTALLED_APPS += ["apis_core.relations"]
 
 #STATICFILES_DIRS = [BASE_DIR + "/member_images"]
 
