@@ -93,6 +93,555 @@ class Salary(TempEntityClass):
 
 
 
+from apis_relations2.models import Relation
+from apis_core.core.models import LegacyDateMixin
+class Person_PersonHasLivingPlace_Place(Relation, LegacyDateMixin):
+    subj_model = Person
+    obj_model = Place
+    name="bewohnt"
+    name_reverse="Bewohner von"
+
+    temptriple_name="bewohnt"
+    temptriple_name_reverse="Bewohner von"
+    temptriple_field_list = ['start_date', 'start_start_date', 'start_end_date', 'end_date', 'end_start_date', 'end_end_date', 'start_date_written', 'end_date_written']
+
+
+class Person_PersonOwnsPlace_Place(Relation, LegacyDateMixin):
+    subj_model = Person
+    obj_model = Place
+    name="besitzt"
+    name_reverse="Besitzer von"
+
+    temptriple_name="besitzt"
+    temptriple_name_reverse="Besitzer von"
+    temptriple_field_list = ['start_date', 'start_start_date', 'start_end_date', 'end_date', 'end_start_date', 'end_end_date', 'start_date_written', 'end_date_written']
+
+
+class Person_PersonIsWorkingInPlace_Place(Relation, LegacyDateMixin):
+    subj_model = Person
+    obj_model = Place
+    name="ist tätig in"
+    name_reverse="ist Tätigkeitsort von"
+
+    temptriple_name="ist tätig in"
+    temptriple_name_reverse="ist Tätigkeitsort von"
+    temptriple_field_list = ['start_date', 'start_start_date', 'start_end_date', 'end_date', 'end_start_date', 'end_end_date', 'start_date_written', 'end_date_written']
+
+
+class Person_PersonPlaceOfResidence_Place(Relation, LegacyDateMixin):
+    subj_model = Person
+    obj_model = Place
+    name="hält sich auf in"
+    name_reverse="ist Aufenthaltsort von"
+
+    temptriple_name="hält sich auf in"
+    temptriple_name_reverse="ist Aufenthaltsort von"
+    temptriple_field_list = ['start_date', 'start_start_date', 'start_end_date', 'end_date', 'end_start_date', 'end_end_date', 'start_date_written', 'end_date_written']
+
+
+class Person_PersonHasCorrespondanceWith_Person(Relation, LegacyDateMixin):
+    subj_model = Person
+    obj_model = Person
+    name="hat Korrespondenz mit"
+    name_reverse="hat Korrespondenz mit"
+
+    temptriple_name="hat Korrespondenz mit"
+    temptriple_name_reverse="hat Korrespondenz mit"
+    temptriple_field_list = ['start_date', 'start_start_date', 'start_end_date', 'end_date', 'end_start_date', 'end_end_date', 'start_date_written', 'end_date_written']
+
+
+class Person_PersonHasFamilyRelationWith_Person(Relation, LegacyDateMixin):
+    subj_model = Person
+    obj_model = Person
+    name="hat Familienbeziehung zu"
+    name_reverse="hat Familienbeziehung zu"
+
+    temptriple_name="hat Familienbeziehung zu"
+    temptriple_name_reverse="hat Familienbeziehung zu"
+    temptriple_field_list = ['start_date', 'start_start_date', 'start_end_date', 'end_date', 'end_start_date', 'end_end_date', 'start_date_written', 'end_date_written']
+
+
+class Person_PersonIsFatherOf_Person(Relation, LegacyDateMixin):
+    subj_model = Person
+    obj_model = Person
+    name="ist Elternteil von"
+    name_reverse="ist Kind von"
+
+    temptriple_name="ist Elternteil von"
+    temptriple_name_reverse="ist Kind von"
+    temptriple_field_list = ['start_date', 'start_start_date', 'start_end_date', 'end_date', 'end_start_date', 'end_end_date', 'start_date_written', 'end_date_written']
+
+
+class Person_PersonIsBrotherOf_Person(Relation, LegacyDateMixin):
+    subj_model = Person
+    obj_model = Person
+    name="ist Bruder/Schwester von"
+    name_reverse="ist Bruder/Schwester von"
+
+    temptriple_name="ist Bruder/Schwester von"
+    temptriple_name_reverse="ist Bruder/Schwester von"
+    temptriple_field_list = ['start_date', 'start_start_date', 'start_end_date', 'end_date', 'end_start_date', 'end_end_date', 'start_date_written', 'end_date_written']
+
+
+class Person_PersonIsSonOf_Person(Relation, LegacyDateMixin):
+    subj_model = Person
+    obj_model = Person
+    name="ist Kind von"
+    name_reverse="ist Elternteil von"
+
+    temptriple_name="ist Kind von"
+    temptriple_name_reverse="ist Elternteil von"
+    temptriple_field_list = ['start_date', 'start_start_date', 'start_end_date', 'end_date', 'end_start_date', 'end_end_date', 'start_date_written', 'end_date_written']
+
+
+class Person_PersonHasMarrigeWith_Person(Relation, LegacyDateMixin):
+    subj_model = Person
+    obj_model = Person
+    name="hat Ehe mit"
+    name_reverse="hat Ehe mit"
+
+    temptriple_name="hat Ehe mit"
+    temptriple_name_reverse="hat Ehe mit"
+    temptriple_field_list = ['start_date', 'start_start_date', 'start_end_date', 'end_date', 'end_start_date', 'end_end_date', 'start_date_written', 'end_date_written']
+
+
+class Person_PersonWasPresentAtCourt_Court(Relation, LegacyDateMixin):
+    subj_model = Person
+    obj_model = Court
+    name="war anwesend bei"
+    name_reverse="hatte anwesende Person"
+
+    temptriple_name="war anwesend bei"
+    temptriple_name_reverse="hatte anwesende Person"
+    temptriple_field_list = ['start_date', 'start_start_date', 'start_end_date', 'end_date', 'end_start_date', 'end_end_date', 'start_date_written', 'end_date_written']
+
+
+class Person_PersonRecommendedPersonForCourt_Person(Relation, LegacyDateMixin):
+    subj_model = Person
+    obj_model = Person
+    name="empfahl"
+    name_reverse="wurde empfohlen von"
+
+    temptriple_name="empfahl"
+    temptriple_name_reverse="wurde empfohlen von"
+    temptriple_field_list = ['start_date', 'start_start_date', 'start_end_date', 'end_date', 'end_start_date', 'end_end_date', 'start_date_written', 'end_date_written']
+
+
+class Person_PersonHadBusinessRealtionshipWithPerson_Person(Relation, LegacyDateMixin):
+    subj_model = Person
+    obj_model = Person
+    name="hat Geschäftsbeziehung zu"
+    name_reverse="hat Geschäftsbeziehung zu"
+
+    temptriple_name="hat Geschäftsbeziehung zu"
+    temptriple_name_reverse="hat Geschäftsbeziehung zu"
+    temptriple_field_list = ['start_date', 'start_start_date', 'start_end_date', 'end_date', 'end_start_date', 'end_end_date', 'start_date_written', 'end_date_written']
+
+
+class Person_PersonIsCustodianOfPerson_Person(Relation, LegacyDateMixin):
+    subj_model = Person
+    obj_model = Person
+    name="ist Vormund von"
+    name_reverse="ist Mündel von"
+
+    temptriple_name="ist Vormund von"
+    temptriple_name_reverse="ist Mündel von"
+    temptriple_field_list = ['start_date', 'start_start_date', 'start_end_date', 'end_date', 'end_start_date', 'end_end_date', 'start_date_written', 'end_date_written']
+
+
+class Person_PersonWasMemberOfInstitution_Institution(Relation, LegacyDateMixin):
+    subj_model = Person
+    obj_model = Institution
+    name="Mitglied von"
+    name_reverse="hatte Mitglied"
+
+    temptriple_name="Mitglied von"
+    temptriple_name_reverse="hatte Mitglied"
+    temptriple_field_list = ['start_date', 'start_start_date', 'start_end_date', 'end_date', 'end_start_date', 'end_end_date', 'start_date_written', 'end_date_written']
+
+
+class Person_PersonWasActiveInInstitution_Institution(Relation, LegacyDateMixin):
+    subj_model = Person
+    obj_model = Institution
+    name="war tätig an"
+    name_reverse="hatte tätige Person"
+
+    temptriple_name="war tätig an"
+    temptriple_name_reverse="hatte tätige Person"
+    temptriple_field_list = ['start_date', 'start_start_date', 'start_end_date', 'end_date', 'end_start_date', 'end_end_date', 'start_date_written', 'end_date_written']
+
+
+class Person_PersonGetsPensionFromInstitution_Institution(Relation, LegacyDateMixin):
+    subj_model = Person
+    obj_model = Institution
+    name="ist Pfründner von"
+    name_reverse="hat Pfründner"
+
+    temptriple_name="ist Pfründner von"
+    temptriple_name_reverse="hat Pfründner"
+    temptriple_field_list = ['start_date', 'start_start_date', 'start_end_date', 'end_date', 'end_start_date', 'end_end_date', 'start_date_written', 'end_date_written']
+
+
+class Person_PersonTookPartInEvent_Event(Relation, LegacyDateMixin):
+    subj_model = Person
+    obj_model = Event
+    name="nahm teil an"
+    name_reverse="hatte teilnehmende Person"
+
+    temptriple_name="nahm teil an"
+    temptriple_name_reverse="hatte teilnehmende Person"
+    temptriple_field_list = ['start_date', 'start_start_date', 'start_end_date', 'end_date', 'end_start_date', 'end_end_date', 'start_date_written', 'end_date_written']
+
+
+class Salary_PersonRecievedSalary_Person(Relation, LegacyDateMixin):
+    subj_model = Salary
+    obj_model = Person
+    name="erhielt Gehalt"
+    name_reverse="wurde ausbezahlt an"
+
+    temptriple_name="erhielt Gehalt"
+    temptriple_name_reverse="wurde ausbezahlt an"
+    temptriple_field_list = ['start_date', 'start_start_date', 'start_end_date', 'end_date', 'end_start_date', 'end_end_date', 'start_date_written', 'end_date_written']
+
+
+class Person_PersonAuthorizedSalary_Salary(Relation, LegacyDateMixin):
+    subj_model = Person
+    obj_model = Salary
+    name="weist an"
+    name_reverse="auf Anweisung von"
+
+    temptriple_name="weist an"
+    temptriple_name_reverse="auf Anweisung von"
+    temptriple_field_list = ['start_date', 'start_start_date', 'start_end_date', 'end_date', 'end_start_date', 'end_end_date', 'start_date_written', 'end_date_written']
+
+
+class Person_PersonBornIn_Place(Relation, LegacyDateMixin):
+    subj_model = Person
+    obj_model = Place
+    name="geboren in"
+    name_reverse="Geburtsort von"
+
+    temptriple_name="geboren in"
+    temptriple_name_reverse="Geburtsort von"
+    temptriple_field_list = ['start_date', 'start_start_date', 'start_end_date', 'end_date', 'end_start_date', 'end_end_date', 'start_date_written', 'end_date_written']
+
+
+class Person_PersonDiedIn_Place(Relation, LegacyDateMixin):
+    subj_model = Person
+    obj_model = Place
+    name="gestorben in"
+    name_reverse="Sterbeort von"
+
+    temptriple_name="gestorben in"
+    temptriple_name_reverse="Sterbeort von"
+    temptriple_field_list = ['start_date', 'start_start_date', 'start_end_date', 'end_date', 'end_start_date', 'end_end_date', 'start_date_written', 'end_date_written']
+
+
+class Person_PersonIsServantOfPerson_Person(Relation, LegacyDateMixin):
+    subj_model = Person
+    obj_model = Person
+    name="ist im Dienst von"
+    name_reverse="hat Diener"
+
+    temptriple_name="ist im Dienst von"
+    temptriple_name_reverse="hat Diener"
+    temptriple_field_list = ['start_date', 'start_start_date', 'start_end_date', 'end_date', 'end_start_date', 'end_end_date', 'start_date_written', 'end_date_written']
+
+
+class Person_PersonHasHometown_Place(Relation, LegacyDateMixin):
+    subj_model = Person
+    obj_model = Place
+    name="hat Heimatort in"
+    name_reverse="Heimatort von"
+
+    temptriple_name="hat Heimatort in"
+    temptriple_name_reverse="Heimatort von"
+    temptriple_field_list = ['start_date', 'start_start_date', 'start_end_date', 'end_date', 'end_start_date', 'end_end_date', 'start_date_written', 'end_date_written']
+
+
+class Person_PersonSellsPropertyTo_Person(Relation, LegacyDateMixin):
+    subj_model = Person
+    obj_model = Person
+    name="verkauft Besitz an"
+    name_reverse="kauft Besitz von"
+
+    temptriple_name="verkauft Besitz an"
+    temptriple_name_reverse="kauft Besitz von"
+    temptriple_field_list = ['start_date', 'start_start_date', 'start_end_date', 'end_date', 'end_start_date', 'end_end_date', 'start_date_written', 'end_date_written']
+
+
+class Person_PersonHasDisputeWith_Person(Relation, LegacyDateMixin):
+    subj_model = Person
+    obj_model = Person
+    name="hat Streit mit"
+    name_reverse="hat Streit mit"
+
+    temptriple_name="hat Streit mit"
+    temptriple_name_reverse="hat Streit mit"
+    temptriple_field_list = ['start_date', 'start_start_date', 'start_end_date', 'end_date', 'end_start_date', 'end_end_date', 'start_date_written', 'end_date_written']
+
+
+class Person_PersonOrFunctionExecutesSalary_Salary(Relation, LegacyDateMixin):
+    subj_model = Person
+    obj_model = Salary
+    name="führt durch"
+    name_reverse="wird durchgeführt von"
+
+    temptriple_name="führt durch"
+    temptriple_name_reverse="wird durchgeführt von"
+    temptriple_field_list = ['start_date', 'start_start_date', 'start_end_date', 'end_date', 'end_start_date', 'end_end_date', 'start_date_written', 'end_date_written']
+
+class Function_PersonOrFunctionExecutesSalary_Salary(Relation, LegacyDateMixin):
+    subj_model = Function
+    obj_model = Salary
+    name="führt durch"
+    name_reverse="wird durchgeführt von"
+
+    temptriple_name="führt durch"
+    temptriple_name_reverse="wird durchgeführt von"
+    temptriple_field_list = ['start_date', 'start_start_date', 'start_end_date', 'end_date', 'end_start_date', 'end_end_date', 'start_date_written', 'end_date_written']
+
+
+class Person_PersonOrFunctionTakesSalary_Salary(Relation, LegacyDateMixin):
+    subj_model = Person
+    obj_model = Salary
+    name="nimmt entgegen"
+    name_reverse="wird entgegengenommen von"
+
+    temptriple_name="nimmt entgegen"
+    temptriple_name_reverse="wird entgegengenommen von"
+    temptriple_field_list = ['start_date', 'start_start_date', 'start_end_date', 'end_date', 'end_start_date', 'end_end_date', 'start_date_written', 'end_date_written']
+
+class Function_PersonOrFunctionTakesSalary_Salary(Relation, LegacyDateMixin):
+    subj_model = Function
+    obj_model = Salary
+    name="nimmt entgegen"
+    name_reverse="wird entgegengenommen von"
+
+    temptriple_name="nimmt entgegen"
+    temptriple_name_reverse="wird entgegengenommen von"
+    temptriple_field_list = ['start_date', 'start_start_date', 'start_end_date', 'end_date', 'end_start_date', 'end_end_date', 'start_date_written', 'end_date_written']
+
+
+class Person_PersonVouchersForPerson_Person(Relation, LegacyDateMixin):
+    subj_model = Person
+    obj_model = Person
+    name="bürgt für"
+    name_reverse="wird gebürgt von"
+
+    temptriple_name="bürgt für"
+    temptriple_name_reverse="wird gebürgt von"
+    temptriple_field_list = ['start_date', 'start_start_date', 'start_end_date', 'end_date', 'end_start_date', 'end_end_date', 'start_date_written', 'end_date_written']
+
+
+class Person_PersonPossibleIdenticalWithPerson_Person(Relation, LegacyDateMixin):
+    subj_model = Person
+    obj_model = Person
+    name="ist möglicherweise identisch mit"
+    name_reverse="ist möglicherweise identisch mit"
+
+    temptriple_name="ist möglicherweise identisch mit"
+    temptriple_name_reverse="ist möglicherweise identisch mit"
+    temptriple_field_list = ['start_date', 'start_start_date', 'start_end_date', 'end_date', 'end_start_date', 'end_end_date', 'start_date_written', 'end_date_written']
+
+
+class Function_FunctionIsLocatedAtInstitution_Institution(Relation, LegacyDateMixin):
+    subj_model = Function
+    obj_model = Institution
+    name="ist an"
+    name_reverse="hat Funktion"
+
+    temptriple_name="ist an"
+    temptriple_name_reverse="hat Funktion"
+    temptriple_field_list = ['start_date', 'start_start_date', 'start_end_date', 'end_date', 'end_start_date', 'end_end_date', 'start_date_written', 'end_date_written']
+
+class Function_FunctionIsLocatedAtInstitution_Court(Relation, LegacyDateMixin):
+    subj_model = Function
+    obj_model = Court
+    name="ist an"
+    name_reverse="hat Funktion"
+
+    temptriple_name="ist an"
+    temptriple_name_reverse="hat Funktion"
+    temptriple_field_list = ['start_date', 'start_start_date', 'start_end_date', 'end_date', 'end_start_date', 'end_end_date', 'start_date_written', 'end_date_written']
+
+
+class Function_FunctionIsHoldBy_Person(Relation, LegacyDateMixin):
+    subj_model = Function
+    obj_model = Person
+    name="wird bekleidet von"
+    name_reverse="hat Funktion inne"
+
+    temptriple_name="wird bekleidet von"
+    temptriple_name_reverse="hat Funktion inne"
+    temptriple_field_list = ['start_date', 'start_start_date', 'start_end_date', 'end_date', 'end_start_date', 'end_end_date', 'start_date_written', 'end_date_written']
+
+
+class Function_FunctionGingHervorAus_Function(Relation, LegacyDateMixin):
+    subj_model = Function
+    obj_model = Function
+    name="ging hervor aus"
+    name_reverse="war Vorgänger von"
+
+    temptriple_name="ging hervor aus"
+    temptriple_name_reverse="war Vorgänger von"
+    temptriple_field_list = ['start_date', 'start_start_date', 'start_end_date', 'end_date', 'end_start_date', 'end_end_date', 'start_date_written', 'end_date_written']
+
+
+class Function_FunctionIsSubordinaryOf_Function(Relation, LegacyDateMixin):
+    subj_model = Function
+    obj_model = Function
+    name="ist untergeordnet"
+    name_reverse="hat untergeordnete Funktion"
+
+    temptriple_name="ist untergeordnet"
+    temptriple_name_reverse="hat untergeordnete Funktion"
+    temptriple_field_list = ['start_date', 'start_start_date', 'start_end_date', 'end_date', 'end_start_date', 'end_end_date', 'start_date_written', 'end_date_written']
+
+
+class Function_FunctionHasTieToFunction_Function(Relation, LegacyDateMixin):
+    subj_model = Function
+    obj_model = Function
+    name="ist verbunden mit"
+    name_reverse="ist verbunden mit"
+
+    temptriple_name="ist verbunden mit"
+    temptriple_name_reverse="ist verbunden mit"
+    temptriple_field_list = ['start_date', 'start_start_date', 'start_end_date', 'end_date', 'end_start_date', 'end_end_date', 'start_date_written', 'end_date_written']
+
+
+class Function_FunctionIsPossiblyPartOfFunction_Function(Relation, LegacyDateMixin):
+    subj_model = Function
+    obj_model = Function
+    name="ist möglicherweise spezifiziert als"
+    name_reverse="ist möglicherweise verallgemeinert als"
+
+    temptriple_name="ist möglicherweise spezifiziert als"
+    temptriple_name_reverse="ist möglicherweise verallgemeinert als"
+    temptriple_field_list = ['start_date', 'start_start_date', 'start_end_date', 'end_date', 'end_start_date', 'end_end_date', 'start_date_written', 'end_date_written']
+
+
+class Function_FunctionWasLocatedIn_Place(Relation, LegacyDateMixin):
+    subj_model = Function
+    obj_model = Place
+    name="ausgeübt in"
+    name_reverse="war Ausübungsort von"
+
+    temptriple_name="ausgeübt in"
+    temptriple_name_reverse="war Ausübungsort von"
+    temptriple_field_list = ['start_date', 'start_start_date', 'start_end_date', 'end_date', 'end_start_date', 'end_end_date', 'start_date_written', 'end_date_written']
+
+
+class Place_PlaceLocatedInPlace_Place(Relation, LegacyDateMixin):
+    subj_model = Place
+    obj_model = Place
+    name="Teil von"
+    name_reverse="hat Teil"
+
+    temptriple_name="Teil von"
+    temptriple_name_reverse="hat Teil"
+    temptriple_field_list = ['start_date', 'start_start_date', 'start_end_date', 'end_date', 'end_start_date', 'end_end_date', 'start_date_written', 'end_date_written']
+
+
+class Institution_InstitutionPaidSalary_Salary(Relation, LegacyDateMixin):
+    subj_model = Institution
+    obj_model = Salary
+    name="zahlte aus"
+    name_reverse="wurde ausbezahlt von"
+
+    temptriple_name="zahlte aus"
+    temptriple_name_reverse="wurde ausbezahlt von"
+    temptriple_field_list = ['start_date', 'start_start_date', 'start_end_date', 'end_date', 'end_start_date', 'end_end_date', 'start_date_written', 'end_date_written']
+
+
+class Institution_InstitutionlocatedIn_Place(Relation, LegacyDateMixin):
+    subj_model = Institution
+    obj_model = Place
+    name="ist gelegen in"
+    name_reverse="inkludiert"
+
+    temptriple_name="ist gelegen in"
+    temptriple_name_reverse="inkludiert"
+    temptriple_field_list = ['start_date', 'start_start_date', 'start_end_date', 'end_date', 'end_start_date', 'end_end_date', 'start_date_written', 'end_date_written']
+
+
+class Institution_InstitutionGivenInMortageTo_Person(Relation, LegacyDateMixin):
+    subj_model = Institution
+    obj_model = Person
+    name="ist verpfändet an"
+    name_reverse="hat als Pfand"
+
+    temptriple_name="ist verpfändet an"
+    temptriple_name_reverse="hat als Pfand"
+    temptriple_field_list = ['start_date', 'start_start_date', 'start_end_date', 'end_date', 'end_start_date', 'end_end_date', 'start_date_written', 'end_date_written']
+
+
+class Institution_InstitutionBelongsToInstitution_Institution(Relation, LegacyDateMixin):
+    subj_model = Institution
+    obj_model = Institution
+    name="gehört zu"
+    name_reverse="zuständig für"
+
+    temptriple_name="gehört zu"
+    temptriple_name_reverse="zuständig für"
+    temptriple_field_list = ['start_date', 'start_start_date', 'start_end_date', 'end_date', 'end_start_date', 'end_end_date', 'start_date_written', 'end_date_written']
+
+
+class Institution_InstitutionOrdersSalary_Salary(Relation, LegacyDateMixin):
+    subj_model = Institution
+    obj_model = Salary
+    name="weist an"
+    name_reverse="angewiesen von"
+
+    temptriple_name="weist an"
+    temptriple_name_reverse="angewiesen von"
+    temptriple_field_list = ['start_date', 'start_start_date', 'start_end_date', 'end_date', 'end_start_date', 'end_end_date', 'start_date_written', 'end_date_written']
+
+
+class Institution_InstitutionHasTieToInstitution_Institution(Relation, LegacyDateMixin):
+    subj_model = Institution
+    obj_model = Institution
+    name="steht in Verbindung mit"
+    name_reverse="steht in Verbindung mit"
+
+    temptriple_name="steht in Verbindung mit"
+    temptriple_name_reverse="steht in Verbindung mit"
+    temptriple_field_list = ['start_date', 'start_start_date', 'start_end_date', 'end_date', 'end_start_date', 'end_end_date', 'start_date_written', 'end_date_written']
+
+
+class Event_EventTookPlaceAt_Place(Relation, LegacyDateMixin):
+    subj_model = Event
+    obj_model = Place
+    name="fand statt in"
+    name_reverse="inkludierte"
+
+    temptriple_name="fand statt in"
+    temptriple_name_reverse="inkludierte"
+    temptriple_field_list = ['start_date', 'start_start_date', 'start_end_date', 'end_date', 'end_start_date', 'end_end_date', 'start_date_written', 'end_date_written']
+
+
+class Salary_SalaryPaidTo_Function(Relation, LegacyDateMixin):
+    subj_model = Salary
+    obj_model = Function
+    name="wurde ausbezahlt an"
+    name_reverse="erhielt"
+
+    temptriple_name="wurde ausbezahlt an"
+    temptriple_name_reverse="erhielt"
+    temptriple_field_list = ['start_date', 'start_start_date', 'start_end_date', 'end_date', 'end_start_date', 'end_end_date', 'start_date_written', 'end_date_written']
+
+
+class Salary_SalaryOrderedBy_Function(Relation, LegacyDateMixin):
+    subj_model = Salary
+    obj_model = Function
+    name="auf Anweisung von"
+    name_reverse="wies an"
+
+    temptriple_name="auf Anweisung von"
+    temptriple_name_reverse="wies an"
+    temptriple_field_list = ['start_date', 'start_start_date', 'start_end_date', 'end_date', 'end_start_date', 'end_end_date', 'start_date_written', 'end_date_written']
+
+
 def construct_properties():
     """
     construct properties for all the models
@@ -411,6 +960,24 @@ def construct_properties():
     function_is_subordinary_of.subj_class.add(ContentType.objects.get(model=Function.__name__))
     function_is_subordinary_of.obj_class.clear()
     function_is_subordinary_of.obj_class.add(ContentType.objects.get(model=Function.__name__))
+
+    function_has_tie_to_function = Property.objects.get_or_create(
+        name="ist verbunden mit",
+        name_reverse="ist verbunden mit",
+    )[0]
+    function_has_tie_to_function.subj_class.clear()
+    function_has_tie_to_function.subj_class.add(ContentType.objects.get(model=Function.__name__))
+    function_has_tie_to_function.obj_class.clear()
+    function_has_tie_to_function.obj_class.add(ContentType.objects.get(model=Function.__name__))
+
+    function_is_possibly_part_of_function = Property.objects.get_or_create(
+        name="ist möglicherweise spezifiziert als",
+        name_reverse="ist möglicherweise verallgemeinert als",
+    )[0]
+    function_is_possibly_part_of_function.subj_class.clear()
+    function_is_possibly_part_of_function.subj_class.add(ContentType.objects.get(model=Function.__name__))
+    function_is_possibly_part_of_function.obj_class.clear()
+    function_is_possibly_part_of_function.obj_class.add(ContentType.objects.get(model=Function.__name__))
 
     function_was_located_in = Property.objects.get_or_create(
         name="ausgeübt in",

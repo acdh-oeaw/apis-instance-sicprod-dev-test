@@ -1,5 +1,6 @@
 {% extends "apis_entities/edit_generic.html" %}
 {% load bibsonomy_templatetags %}
+{% load relations %}
 
 {% block content %}
   {% load django_tables2 %}
@@ -179,25 +180,28 @@
                         <hr />
                       {% endblock additional_accordion %}
 
-                      {% for obj in right_card %}
-                        <div class="card card-default">
-                          <div class="card-header" role="tab" id="heading{{ forloop.counter }}">
-                            <h4 class="card-title">
-                              <a role="button"
-                                 data-toggle="collapse"
-                                 data-parent="#accordion"
-                                 href="#collapse{{ forloop.counter }}"
-                                 aria-expanded="true"
-                                 aria-controls="collapse{{ forloop.counter }}">{{ obj.0 }}</a>
-                            </h4>
-                          </div>
-                          <div id="collapse{{ forloop.counter }}" class="card-collapse collapse 
-                            {% if obj.3 %}in{% endif %}
-                             " role="tabcard" aria-labelledby="heading{{ forloop.counter }}">
-                            <div id="tab_{{ obj.2 }}" class="card-body">{% render_table obj.1 %}</div>
+		      {% instance_can_be_related_to instance as pr %}
+		      {% for ct in pr %}
+                      <div class="card card-default">
+                        <div class="card-header" role="tab" id="heading{{ forloop.counter }}">
+                          <h4 class="card-title">
+                            <a role="button"
+                               data-toggle="collapse"
+                               data-parent="#accordion"
+                               href="#collapse{{ forloop.counter }}"
+                               aria-expanded="true"
+                               aria-controls="collapse{{ forloop.counter }}">{{ ct.name }}</a>
+                          </h4>
+                        </div>
+                          <div id="collapse{{ forloop.counter }}" class="card-collapse collapse" role="tabcard" aria-labelledby="heading{{ forloop.counter }}">
+                             <div id="tab_{{ obj.2 }}" class="card-body">
+				     <div id="relations-partial">
+			      {% relations_partial request instance=instance tocontenttype=ct htmx=True links=True %}
+				     </div>
+			  </div>
                           </div>
                         </div>
-                      {% endfor %}
+		      {% endfor %}
                     </div>
                   </div>
                 </div>

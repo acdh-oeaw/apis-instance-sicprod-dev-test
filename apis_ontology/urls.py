@@ -10,3 +10,6 @@ customurlpatterns = [
     path('bibsonomy/references/<int:pk>/delete', login_required(CustomReferenceDeleteView.as_view()), name='referencedelete'),
 ]
 urlpatterns = customurlpatterns + urlpatterns
+
+from apis_relations2.urls import urlpatterns as relurlpatterns
+urlpatterns = urlpatterns + relurlpatterns
