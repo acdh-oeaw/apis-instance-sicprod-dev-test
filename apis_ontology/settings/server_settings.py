@@ -199,7 +199,3 @@ def apis_list_view_object_filter(view, queryset):
 
 APIS_LIST_VIEWS_ALLOWED = True
 APIS_LIST_VIEW_OBJECT_FILTER = apis_list_view_object_filter
-
-AUTHENTICATION_BACKENDS = ["django_imapauth.backends.ImapAuthBackend", "django.contrib.auth.backends.ModelBackend"]
-IMAP_AUTH_HOST = "imap.exchange.oeaw.ac.at"
-IMAP_AUTH = ["bschacht"]
