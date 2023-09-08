@@ -11,10 +11,12 @@ from django.contrib.contenttypes.models import ContentType
 from django.db import models
 from apis_core.apis_entities.models import TempEntityClass
 
+from apis_ontology.mixins import MetadataMixin
+
 
 
 @reversion.register(follow=["tempentityclass_ptr"])
-class Person(TempEntityClass):
+class Person(MetadataMixin, TempEntityClass):
     """
     Person, eine Subklasse von crm:E21_Person.
     Generated from model xml
@@ -26,7 +28,7 @@ class Person(TempEntityClass):
 
 
 @reversion.register(follow=["tempentityclass_ptr"])
-class Function(TempEntityClass):
+class Function(MetadataMixin, TempEntityClass):
     """
     Eine Funktion kann von einer Person an einer Institution oder einem Hof ausgeübt werden kann.
     Generated from model xml
@@ -35,7 +37,7 @@ class Function(TempEntityClass):
 
 
 @reversion.register(follow=["tempentityclass_ptr"])
-class Place(TempEntityClass):
+class Place(MetadataMixin, TempEntityClass):
     """
     Orte in SiCProD, Subklasse von crm:E53_Place.
     Generated from model xml
@@ -48,7 +50,7 @@ class Place(TempEntityClass):
 
 
 @reversion.register(follow=["tempentityclass_ptr"])
-class Institution(TempEntityClass):
+class Institution(MetadataMixin, TempEntityClass):
     """
     SiCProD Institution, Subklasse von crm:E74_Group. Wird für alle Institutionen benutzt die kein Hof sind
     Generated from model xml
@@ -59,7 +61,7 @@ class Institution(TempEntityClass):
 
 
 @reversion.register(follow=["tempentityclass_ptr"])
-class Court(TempEntityClass):
+class Court(MetadataMixin, TempEntityClass):
     """
     SiCProD Hof, Subklasse von crm:E74_Group. Wird für alle Institutionen benutzt die ein Hof sind
     Generated from model xml
@@ -70,7 +72,7 @@ class Court(TempEntityClass):
 
 
 @reversion.register(follow=["tempentityclass_ptr"])
-class Event(TempEntityClass):
+class Event(MetadataMixin, TempEntityClass):
     """
     SiCProD Ereignis, Subklasse von crm:E5_Event.
     Generated from model xml
@@ -81,7 +83,7 @@ class Event(TempEntityClass):
 
 
 @reversion.register(follow=["tempentityclass_ptr"])
-class Salary(TempEntityClass):
+class Salary(MetadataMixin, TempEntityClass):
     """
     Ein Gehalt ist die Menge an Geld die eine Person als Gegenleistung erhalten hat. Das Gehalt muss keine wiederkehrende Zahlung sein.
     Generated from model xml
