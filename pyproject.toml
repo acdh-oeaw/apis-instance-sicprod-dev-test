@@ -12,9 +12,9 @@ python = "^3.11"
 django = ">=4.1,<4.2"
 mysqlclient = "^2.0.3"
 apis-core = { git = "https://github.com/acdh-oeaw/apis-core-rdf.git", branch = "sicprod-dev" }
-webpage = { git = "https://github.com/acdh-oeaw/apis-webpage.git", tag = "v0.1.0" }
+webpage = { git = "https://github.com/acdh-oeaw/apis-webpage.git", tag = "v0.2.0" }
 apis-bibsonomy = { git = "https://github.com/acdh-oeaw/apis-bibsonomy.git", branch = "birger/fix-referenceonform-issues" }
-apis-acdhch-default-settings = { git = "https://github.com/acdh-oeaw/apis-acdhch-default-settings.git", tag = "v0.1.6" }
+apis-acdhch-default-settings = { git = "https://github.com/acdh-oeaw/apis-acdhch-default-settings.git", tag = "v0.1.7" }
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
