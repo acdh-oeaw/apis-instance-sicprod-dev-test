@@ -68,6 +68,11 @@ class Court(TempEntityClass):
     TYPE_CHOICES = (("Hof", "Hof"), ("Klosterhof", "Klosterhof"), ("Kaiserhof", "Kaiserhof"), ("Königshof", "Königshof"), ("Bischöflicher Hof", "Bischöflicher Hof"), ("Kurfürstlicher Hof", "Kurfürstlicher Hof"), ("Erzbischöflicher Hof", "Erzbischöflicher Hof"), ("Königlicher Hof", "Königlicher Hof"), ("Kaiserlicher Hof", "Kaiserlicher Hof"), ("Frauenzimmer", "Frauenzimmer"), )
     type = models.CharField(max_length=20, choices=TYPE_CHOICES, blank=True, verbose_name = "Typ", help_text = "Art des Hofes")
 
+    detailviewexclude = ["start_start_date", "start_end_date", "end_start_date", "end_end_date", "start_date_written", "end_date_written"]
+
+    def detailview_collection2(self):
+        return [c for c in self.collection.all()]
+
 
 @reversion.register(follow=["tempentityclass_ptr"])
 class Event(TempEntityClass):

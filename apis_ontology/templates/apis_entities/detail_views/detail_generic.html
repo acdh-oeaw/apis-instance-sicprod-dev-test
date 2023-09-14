@@ -1,6 +1,8 @@
 {% extends "apis_entities/detail_views/detail_generic.html" %}
 {% load bibsonomy_templatetags %}
 {% block info-table %}
+{% load apis_ontology %}
+{% model_to_table object %}
 <table class="table table-bordered table-hover">
   <tr>
     <th>Titel</th>
