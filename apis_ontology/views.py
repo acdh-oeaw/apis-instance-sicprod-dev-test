@@ -82,3 +82,8 @@ class CustomReferenceDeleteView(ReferenceDeleteView):
         if "HX-Request" in request.headers:
             resp.status_code = 200
         return resp
+
+from reversion.models import Revision
+class History(ListView):
+    paginate_by = 100
+    model = Revision

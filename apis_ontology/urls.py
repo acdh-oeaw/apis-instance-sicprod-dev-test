@@ -1,6 +1,6 @@
 from apis.urls import urlpatterns
 from django.urls import path
-from .views import CustomReferenceDetailView, TempTripleAutocomplete, TempEntityClassAutocomplete, CustomReferenceDeleteView
+from .views import CustomReferenceDetailView, TempTripleAutocomplete, TempEntityClassAutocomplete, CustomReferenceDeleteView, History
 from django.contrib.auth.decorators import login_required
 
 customurlpatterns = [
@@ -8,5 +8,6 @@ customurlpatterns = [
     path('bibsonomy/tempentityclass-autocomplete/', TempEntityClassAutocomplete.as_view(), name="tempentityclass-autocomplete",),
     path('bibsonomy/temptriple-autocomplete/', TempTripleAutocomplete.as_view(), name="temptriple-autocomplete",),
     path('bibsonomy/references/<int:pk>/delete', login_required(CustomReferenceDeleteView.as_view()), name='referencedelete'),
+    path('reversion/history', History.as_view(), name="history"),
 ]
 urlpatterns = customurlpatterns + urlpatterns
