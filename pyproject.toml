@@ -14,7 +14,7 @@ mysqlclient = "^2.0.3"
 apis-core = { git = "https://github.com/acdh-oeaw/apis-core-rdf.git", tag = "v0.5.0" }
 webpage = { git = "https://github.com/acdh-oeaw/apis-webpage.git", tag = "v0.2.0" }
 apis-bibsonomy = { git = "https://github.com/acdh-oeaw/apis-bibsonomy.git", branch = "birger/fix-referenceonform-issues" }
-apis-acdhch-default-settings = { git = "https://github.com/acdh-oeaw/apis-acdhch-default-settings.git", tag = "v0.1.8" }
+apis-acdhch-default-settings = { git = "https://github.com/acdh-oeaw/apis-acdhch-default-settings.git", tag = "v0.1.9" }
 django-matomo = "^0.1.6"
 
 [build-system]
