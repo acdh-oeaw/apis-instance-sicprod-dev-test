@@ -15,7 +15,7 @@ class Command(BaseCommand):
         data = json.loads(properties_json.read_text())
 
         for p in data:
-            prop, _ = Property.objects.get_or_create(pk=p["id"])
+            prop, created = Property.objects.get_or_create(pk=p["id"])
             prop.name = p["name"]
             prop.name_reverse = p["name_reverse"]
             prop.save()
@@ -25,4 +25,7 @@ class Command(BaseCommand):
             prop.subj_class.clear()
             for subj in p["subj"]:
                 prop.subj_class.add(ContentType.objects.get(model=subj))
-            print(prop)
+            if created:
+                print(f"Created {prop}")
+            else:
+                print(f"Updated {prop}")
